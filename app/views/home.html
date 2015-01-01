@@ -1,0 +1,82 @@
+<core-scroll-header-panel flex condenses condensedHeaderHeight="64px" keepCondensedHeader>
+    <core-toolbar class="tall">
+        <paper-icon-button hide></paper-icon-button>
+        <span flex></span> 
+        <!--            <paper-button>Sign in</paper-button>-->
+        <paper-icon-button class="sign-in-dialog-button" icon="home" title="Sign in" ng-click="toggleSignInDialog()"></paper-icon-button>
+        <div class="title-home unselectable bottom indent"><a ui-sref="home">Ciao4j</a>
+        </div>
+    </core-toolbar>
+    <div class="content" layout vertical>
+        <div class="top-box" layout vertical center>
+            <div layout horizontal>
+                <h1><big>Ciao4j</big> a social network powered by&nbsp;</h1>
+                <img src="images/neo4j-blue-logo.png" alt="Neo4j">
+            </div>
+            <paper-button class="sign-up-dialog-button" self-center>Sign up now</paper-button>
+        </div>
+        <paper-shadow animated layout vertical center>
+            <h2>Neo4j powered social graph searching!</h2> 
+            <img src="images/usecase-recommendation-sm2.png" alt="Neo4j">
+        </paper-shadow>
+        <paper-shadow animated layout vertical center>
+            <h2>Make friends from all over the world!</h2> 
+            <img src="images/map3.jpeg" alt="World map">
+        </paper-shadow>
+        <paper-shadow animated layout vertical stretch>
+            <!--                <h2 self-center>Made with <core-icon icon="favorite" style="color: red;"></core-icon> by</h2>-->
+            <h2 self-center>Made with <love-heart></love-heart> by</h2>
+            <div layout horizontal around-justified>
+                <div class="avatar">
+                    <img src="images/yuxiangluo.jpg" alt="Yuxiang Luo" title="Yuxiang Luo">
+                </div>
+                <div class="avatar">
+                    <img src="images/Cat.jpg" alt="Nex Zhu" title="Nex Zhu">
+                </div>
+            </div>
+            <h2 self-center>Powered by</h2> 
+            <div layout horizontal around-justified>
+                <div class="tech">
+                    <img src="images/tech/Neo4j.png" alt="Neo4j" title="Neo4j">
+                </div>
+                <div class="tech">
+                    <img src="images/tech/AngularJS.png" alt="AngularJS" title="AngularJS">
+                </div>
+                <div class="tech">
+                    <img src="images/tech/AngularUI.png" alt="AngularUI" title="AngularUI">
+                </div>
+                <div class="tech">
+                    <img src="images/tech/jQuery.png" alt="jQuery" title="jQuery">
+                </div>
+                <div class="tech">
+                    <img src="images/tech/Polymer.png" alt="Polymer" title="Polymer">
+                </div>
+                <div class="tech">
+                    <img src="images/tech/Yeoman.png" alt="Yeoman" title="Yeoman">
+                </div>
+            </div>
+        </paper-shadow>
+        <div class="bottom-box" layout vertical center>
+            <paper-button class="sign-up-dialog-button" self-center>Sign up now</paper-button>
+        </div>
+    </div>
+</core-scroll-header-panel>
+
+<paper-action-dialog class="sign-in-dialog" heading="Sign in" autoclosedisabled backdrop closeSelector="[dismissive]" transition="core-transition-top">
+    <form layout vertical>
+        <paper-input label="Username" floatingLabel></paper-input>
+        <paper-input type="password" label="Password" floatingLabel></paper-input>
+    </form>
+    <paper-button affirmative class="sign-in-button" ng-click="signIn()">Sign in</paper-button>
+    <paper-button dismissive>Cancel</paper-button>
+</paper-action-dialog>
+
+<paper-action-dialog class="sign-up-dialog" heading="Sign up" autoclosedisabled backdrop closeSelector="[dismissive]" transition="core-transition-top">
+    <form layout vertical>
+        <paper-input label="Username" floatingLabel></paper-input>
+        <paper-input type="password" label="Password" floatingLabel></paper-input>
+        <paper-input type="password" label="Confirm your password" floatingLabel></paper-input>
+    </form>
+    <paper-button affirmative>Sign up</paper-button>
+    <paper-button dismissive>Cancel</paper-button>
+</paper-action-dialog>

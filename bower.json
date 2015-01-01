@@ -1,0 +1,28 @@
+{
+  "name": "ciao4j",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "json3": "^3.3.0",
+    "es5-shim": "^4.0.0",
+    "angular-animate": "^1.3.0",
+    "angular-cookies": "^1.3.0",
+    "angular-messages": "^1.3.0",
+    "angular-resource": "^1.3.0",
+    "angular-sanitize": "^1.3.0",
+    "angular-material": "~0.6.1",
+    "angular-ui-router": "~0.2.13",
+    "jquery": "~2.1.3",
+    "polymer": "~0.5.2",
+    "core-elements": "Polymer/core-elements#~0.5.2",
+    "paper-elements": "Polymer/paper-elements#~0.5.2",
+    "ng-polymer-elements": "~0.2.0",
+    "love-heart": "~0.3.0",
+    "html5-paper-input": "~1.0.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.0",
+    "angular-scenario": "~1.3.0"
+  },
+  "appPath": "app"
+}

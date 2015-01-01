@@ -1,0 +1,58 @@
+<core-scaffold mode="standard">
+    <core-header-panel navigation flex>
+        <core-toolbar class="accent unselectable">
+            <span>Menu</span>
+        </core-toolbar>
+        <core-menu ng-model="page">
+            <paper-item noink>
+                <!--                <core-icon icon="communication:hangout"></core-icon>-->
+                <core-icon icon="social:circles"></core-icon>
+                <span>&nbsp;Ciaos</span>
+            </paper-item>
+            <paper-item noink>
+                <!--                <core-icon icon="social:mood"></core-icon>-->
+                <core-icon icon="face-unlock"></core-icon>
+                <span>&nbsp;Mine</span>
+            </paper-item>
+            <paper-item noink>
+                <core-icon icon="social:group"></core-icon>
+                <span>&nbsp;Friends</span>
+            </paper-item>
+        </core-menu>
+    </core-header-panel>
+
+    <core-toolbar tool flex>
+        <div class="title unselectable" flex><a ui-sref="home">Ciao4j</a>
+        </div>
+        <core-icon-button icon="refresh"></core-icon-button>
+        <core-icon-button icon="add"></core-icon-button>
+    </core-toolbar>
+
+    <core-animated-pages transitions="slide-from-right" fit>
+        <section layout vertical>
+            <div>
+                <div>Ciaos</div>
+                <div>Ciaos</div>
+                <div>Ciaos</div>
+                <div>Ciaos</div>
+            </div>
+        </section>
+        <section layout vertical>
+            <div>
+                <div>Mine</div>
+                <div>Mine</div>
+                <div>Mine</div>
+                <div>Mine</div>
+            </div>
+        </section>
+        <section layout vertical>
+            <div>
+                <div>Friends</div>
+                <div>Friends</div>
+                <div>Friends</div>
+                <div>Friends</div>
+            </div>
+        </section>
+    </core-animated-pages>
+    <!--    </div>-->
+</core-scaffold>
