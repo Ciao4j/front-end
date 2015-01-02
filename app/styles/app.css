@@ -47,7 +47,7 @@ core-scroll-header-panel::shadow #headerBg {
     background-image: url(../images/header.jpg);
 }
 core-scroll-header-panel::shadow #condensedHeaderBg {
-    /*    background-color: #f44336;*/
+    background-color: #f44336;
     background-color: #3f51b5;
 }
 core-toolbar {
@@ -77,7 +77,6 @@ core-toolbar .title a {
 }
 .content {
     padding: 10px;
-    color: rgba(0, 0, 0, 0.1);
 }
 .top-box {
     margin-top: 80px;
@@ -124,21 +123,21 @@ paper-shadow {
 .tech img {
     max-height: 100%;
 }
-html /deep/ paper-action-dialog::shadow h1 {
+body /deep/ paper-action-dialog::shadow h1 {
     color: #ff4081;
 }
-html /deep/ paper-action-dialog paper-button {
+body /deep/ paper-action-dialog paper-button {
     color: white;
 }
-html /deep/ paper-action-dialog paper-button[affirmative] {
+body /deep/ paper-action-dialog paper-button[affirmative] {
     background-color: #ff4081;
 }
-html /deep/ paper-action-dialog paper-button[dismissive] {
+body /deep/ paper-action-dialog paper-button[dismissive] {
     background-color: #3f51b5;
 }
 /* Main */
 
-body /deep/ core-toolbar {
+core-scaffold /deep/ core-toolbar {
     background-color: #3f51b5;
     color: white;
 }
@@ -150,10 +149,8 @@ core-menu paper-item {
     transition: all 300ms ease-in-out;
 }
 core-menu paper-item.core-selected {
-    background: white;
-    /*        background: #fce4ec;*/
-    color: #3f51b5;
-    /*    color: #f50057;*/
+    background: #fce4ec;
+    color: #f50057;
 }
 core-animated-pages section {
     width: 100%;
