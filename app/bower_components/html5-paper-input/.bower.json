@@ -1,0 +1,42 @@
+{
+  "name": "html5-paper-input",
+  "version": "1.0.1",
+  "keywords": [
+    "seed",
+    "polymer",
+    "web-components"
+  ],
+  "main": "html5-paper-input.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "core-elements": "Polymer/core-elements#^0.5.1",
+    "paper-elements": "Polymer/paper-elements#^0.5.1"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^2.0.0-rc1"
+  },
+  "homepage": "https://github.com/cbalit/html5-paper-input",
+  "authors": [
+    "Cyril Balit <cbalit@gmail.com>"
+  ],
+  "description": "A Polymer paper-input with HTML5 validation",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "8a5b85a8063a9538f2bea8934a99898960839af8"
+  },
+  "_source": "git://github.com/cbalit/html5-paper-input.git",
+  "_target": "~1.0.1",
+  "_originalSource": "html5-paper-input",
+  "_direct": true
+}
