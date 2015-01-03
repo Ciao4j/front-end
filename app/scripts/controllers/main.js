@@ -32,7 +32,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, Restangular
                 'overflow': 'visible'
             });
         });
-    }
+    };
     $scope.refresh = function () {
         switch ($scope.page) {
         case 0:
@@ -46,7 +46,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, Restangular
             break;
         }
         $('section.core-selected').scrollTop(0);
-    }
+    };
 
     function updateScaffoldMode() {
         var width = document.documentElement.clientWidth;

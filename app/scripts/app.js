@@ -46,7 +46,7 @@ angular.module('ciao4jApp', [
         url: '/main',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-    })
+    });
 
     cfpLoadingBarProvider.includeSpinner = false;
-})
+});

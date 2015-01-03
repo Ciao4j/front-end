@@ -46,14 +46,14 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         $scope.signUpDialog.toggle();
     });
     $('paper-button').mouseover(function () {
-        this.raised = "true";
+        this.raised = true;
     }).mouseout(function () {
         this.raised = false;
     });
     $scope.signIn = function () {
         $scope.signInDialog.toggle();
         $state.go('main');
-    }
+    };
 
     updateToolbarHeight();
 });
