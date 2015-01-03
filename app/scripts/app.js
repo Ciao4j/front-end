@@ -16,6 +16,8 @@ angular.module('ciao4jApp', [
     'ngSanitize',
      //    'ngMaterial',
     'ui.router',
+    'angular-loading-bar',
+    'restangular',
     'ng-polymer-elements'
 ])
 //    .config(function ($routeProvider) {
@@ -32,7 +34,7 @@ angular.module('ciao4jApp', [
 //                redirectTo: '/'
 //            });
 //    })
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
@@ -45,4 +47,6 @@ angular.module('ciao4jApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
     })
+
+    cfpLoadingBarProvider.includeSpinner = false;
 })

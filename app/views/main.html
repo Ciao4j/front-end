@@ -1,9 +1,9 @@
-<core-scaffold mode="standard">
+<core-scaffold mode="cover">
     <core-header-panel navigation flex>
         <core-toolbar class="accent unselectable">
             <span>Menu</span>
         </core-toolbar>
-        <core-menu ng-model="page">
+        <core-menu class="menu" ng-model="page">
             <paper-item noink>
                 <!--                <core-icon icon="communication:hangout"></core-icon>-->
                 <core-icon icon="social:circles"></core-icon>
@@ -15,7 +15,7 @@
                 <span>&nbsp;Mine</span>
             </paper-item>
             <paper-item noink>
-                <core-icon icon="social:group"></core-icon>
+                <core-icon icon="social:people"></core-icon>
                 <span>&nbsp;Friends</span>
             </paper-item>
         </core-menu>
@@ -24,33 +24,84 @@
     <core-toolbar tool flex>
         <div class="title unselectable" flex><a ui-sref="home">Ciao4j</a>
         </div>
-        <core-icon-button icon="refresh"></core-icon-button>
-        <core-icon-button icon="add"></core-icon-button>
+        <core-icon-button class="toolbar-icon" icon="refresh" ng-click="refresh()"></core-icon-button>
+        <!--        <core-icon-button class="toolbar-icon" icon="add" ng-click="refresh()"></core-icon-button>-->
+        <paper-menu-button class="toolbar-menu">
+            <paper-icon-button icon="add" noink></paper-icon-button>
+            <paper-dropdown class="dropdown" halign="right">
+                <core-menu class="menu-add">
+                    <paper-item noink>
+                        <core-icon icon="create"></core-icon>
+                        <span>&nbsp;Say Ciao</span>
+                    </paper-item>
+                    <paper-item noink>
+                        <core-icon icon="social:person-add"></core-icon>
+                        <span>&nbsp;Add Friend</span>
+                    </paper-item>
+                </core-menu>
+            </paper-dropdown>
+        </paper-menu-button>
     </core-toolbar>
 
     <core-animated-pages transitions="slide-from-right" fit>
-        <section layout vertical>
-            <div>
-                <div>Ciaos</div>
-                <div>Ciaos</div>
-                <div>Ciaos</div>
-                <div>Ciaos</div>
+        <section layout vertical stretch>
+            <div class="ciaos">
+                <div class="placeholder">
+                </div>
+                <paper-shadow class="card" ng-repeat="ciao in ciaos" layout vertical>
+                    <div layout horizontal center>
+                        <div class="avatar-mini">
+                            <img ng-src="/avatar?username='{{ciao.username}}'" alt="Nex Zhu"></img>
+                        </div>
+                        <div layout vertical>
+                            <div><a ui-sref="main">{{ciao.nickname}}</a>
+                            </div>
+                            <div class="date secondary-text">{{ciao.date}}</div>
+                        </div>
+                    </div>
+                    <div>{{ciao.content}}</div>
+                </paper-shadow>
             </div>
         </section>
-        <section layout vertical>
-            <div>
-                <div>Mine</div>
-                <div>Mine</div>
-                <div>Mine</div>
-                <div>Mine</div>
+        <section layout vertical stretch>
+            <div class="ciaos">
+                <div class="placeholder">
+                </div>
+                <paper-shadow class="card" ng-repeat="ciao in mine" layout vertical>
+                    <div layout horizontal center>
+                        <div class="avatar-mini">
+                            <img ng-src="/avatar?username='{{ciao.username}}'" alt="Nex Zhu"></img>
+                        </div>
+                        <div layout vertical>
+                            <div><a ui-sref="main">{{ciao.nickname}}</a>
+                            </div>
+                            <div class="date secondary-text">{{ciao.date}}</div>
+                        </div>
+                    </div>
+                    <div>{{ciao.content}}</div>
+                </paper-shadow>
             </div>
         </section>
-        <section layout vertical>
-            <div>
-                <div>Friends</div>
-                <div>Friends</div>
-                <div>Friends</div>
-                <div>Friends</div>
+        <section layout vertical stretch>
+            <div fit>
+                <div class="placeholder-friends">
+                </div>
+                <core-list ng-model="friends" grid width="240">
+                    <template>
+                        <div class="grid">
+                            <div class="list-item" layout horizontal center>
+                                <div class="avatar-friend">
+                                    <img src="/avatar?username='{{model.username}}'" alt="Nex Zhu"></img>
+                                </div>
+                                <div layout vertical>
+                                    <div><a ui-sref="main">{{model.nickname}}</a>
+                                    </div>
+                                    <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </core-list>
             </div>
         </section>
     </core-animated-pages>
