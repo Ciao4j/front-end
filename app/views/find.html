@@ -1,6 +1,8 @@
 <core-header-panel class="find" flex>
     <core-toolbar>
-        <paper-icon-button icon="arrow-back" title="Go back" ng-click="back()"></paper-icon-button>
+        <core-tooltip label="Go back">
+            <paper-icon-button icon="arrow-back" ng-click="back()"></paper-icon-button>
+        </core-tooltip>
         <div class="title unselectable"><a ui-sref="home">Ciao4j</a>
         </div>
         <!--
@@ -42,7 +44,8 @@
                             <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
                         </div>
                         <span flex></span>
-                        <paper-icon-button icon="social:person-add"></paper-icon-button>
+                        <core-icon class="check" icon="check" hidden?="{{!model.isFriend}}"></core-icon>
+                        <paper-icon-button class="add" icon="social:person-add" hidden?="{{model.isFriend}}" username="{{model.username}}" index="{{index}}"></paper-icon-button>
                     </div>
                 </div>
             </template>

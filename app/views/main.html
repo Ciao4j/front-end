@@ -24,10 +24,14 @@
     <core-toolbar tool flex>
         <div class="title unselectable" flex><a ui-sref="home">Ciao4j</a>
         </div>
-        <core-icon-button class="toolbar-icon" icon="refresh" title="Refresh" ng-click="refresh()"></core-icon-button>
+        <core-tooltip label="Refresh">
+            <core-icon-button class="toolbar-icon" icon="refresh" ng-click="refresh()"></core-icon-button>
+        </core-tooltip>
         <!--        <core-icon-button class="toolbar-icon" icon="add" ng-click="refresh()"></core-icon-button>-->
         <paper-menu-button class="toolbar-menu">
-            <paper-icon-button icon="add" title="Add" noink></paper-icon-button>
+            <core-tooltip label="Add">
+                <paper-icon-button icon="add" noink></paper-icon-button>
+            </core-tooltip>
             <paper-dropdown class="dropdown" halign="right">
                 <core-menu class="menu-add">
                     <paper-item ng-click="toSay()" noink>

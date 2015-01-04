@@ -8,7 +8,7 @@
  * Controller of the ciao4jApp
  */
 angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $timeout, Restangular) {
-    $scope.username = 'nexzhu'
+    $scope.username = 'nexzhu';
     $scope.mock = Restangular.one('mock');
     $scope.refreshCiaos = function () {
         $scope.mock.getList('ViewMessageFromFriends', {
@@ -28,10 +28,10 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
         $scope.mock.getList('ListFriends', {
             username: $scope.username
         }).then(function (friends) {
-            $scope.friends = friends;
             $('.friends-list').css({
                 'overflow': 'visible'
             });
+            $scope.friends = friends;
         });
     };
     $scope.refresh = function () {
@@ -52,10 +52,12 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
     function updateScaffoldMode() {
         var width = document.documentElement.clientWidth;
         var scaffold = document.querySelector('core-scaffold');
-        if (width > 960) {
-            scaffold.mode = 'cover';
-        } else {
-            scaffold.mode = 'standard';
+        if (scaffold != null) {
+            if (width > 960) {
+                scaffold.mode = 'cover';
+            } else {
+                scaffold.mode = 'standard';
+            }
         }
     }
     $(window).resize(function () {
@@ -63,6 +65,11 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
     });
     updateScaffoldMode();
 
+    $('paper-button').mouseover(function () {
+        this.raised = true;
+    }).mouseout(function () {
+        this.raised = false;
+    });
     $scope.toSay = function () {
         $scope.page = 1;
         var timer = $timeout(function () {}, 100);

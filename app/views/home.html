@@ -3,7 +3,9 @@
         <paper-icon-button hide></paper-icon-button>
         <span flex></span> 
         <!--            <paper-button>Sign in</paper-button>-->
-        <paper-icon-button class="sign-in-dialog-button" icon="home" title="Sign in" ng-click="toggleSignInDialog()"></paper-icon-button>
+        <core-tooltip label="Sign in">
+            <paper-icon-button class="sign-in-dialog-button" icon="home" ng-click="toggleSignInDialog()"></paper-icon-button>
+        </core-tooltip>
         <div class="title-home unselectable bottom indent"><a ui-sref="home">Ciao4j</a>
         </div>
     </core-toolbar>

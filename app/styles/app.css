@@ -65,12 +65,6 @@ core-tooltip:focus::shadow .core-tooltip {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
-.nav,
-.pagination,
-.carousel,
-.panel-title a {
-    cursor: pointer;
-}
 /* Home */
 
 core-scroll-header-panel::shadow #headerBg {
@@ -322,4 +316,16 @@ core-list {
     padding: 10px;
     background-color: white;
     border: 1px solid #e9eaed;
+}
+.list-item-friend a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #3f51b5;
+}
+.check {
+    margin: 8px;
+    color: green;
+}
+.add:hover {
+    color: #ff4081;
 }

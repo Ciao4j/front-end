@@ -40,8 +40,9 @@ angular.module('ciao4jApp', [
     $stateProvider.state('home', {
         url: '/',
         templateUrl: 'views/home.html',
-        //        templateUrl: 'views/test.html',
         controller: 'HomeCtrl'
+        //        templateUrl: 'views/test.html',
+        //        controller: 'TestCtrl'
     }).state('main', {
         url: '/main',
         templateUrl: 'views/main.html',
