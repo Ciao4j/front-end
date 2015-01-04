@@ -52,6 +52,25 @@ body {
     color: rgba(0, 0, 0, 0.87);
     font-family: "roboto";
 }
+core-tooltip::shadow .core-tooltip {
+    opacity: 0;
+    -webkit-transition: all 300ms cubic-bezier(0, 1.92, .99, 1.07);
+    transition: all 300ms cubic-bezier(0, 1.92, .99, 1.07);
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+}
+core-tooltip:hover::shadow .core-tooltip,
+core-tooltip:focus::shadow .core-tooltip {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
 /* Home */
 
 core-scroll-header-panel::shadow #headerBg {
@@ -60,16 +79,10 @@ core-scroll-header-panel::shadow #headerBg {
 core-scroll-header-panel::shadow #condensedHeaderBg {
     background-color: #3f51b5;
 }
-core-toolbar {
+core-scroll-header-panel core-toolbar {
     background-color: transparent;
     color: white;
 }
-/*
-core-toolbar button {
-    color: white;
-}
-*/
-
 core-toolbar paper-icon-button:hover {
     background: #c5cae9;
     border-radius: 50%;
@@ -109,6 +122,9 @@ paper-shadow {
 .content h1 {
     color: #ff4081;
 }
+.content h2 {
+    color: #3f51b5;
+}
 .content img {
     max-width: 100%;
 }
@@ -126,6 +142,12 @@ paper-shadow {
 .avatar img {
     max-width: 100%;
     border-radius: 50%;
+}
+.author {
+    line-height: 19px;
+}
+.name {
+    color: #ff4081;
 }
 .tech {
     display: inline-block;
@@ -188,6 +210,7 @@ core-toolbar .toolbar-menu {
 }
 .menu-add {
     margin: 0;
+    background-color: white;
     color: black;
 }
 .menu-add paper-item:hover {
@@ -214,7 +237,7 @@ core-scaffold /deep/ section::-webkit-scrollbar {
     display: none;
 }
 core-scaffold /deep/ paper-shadow.card {
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 10px;
 }
 .placeholder {
@@ -225,22 +248,22 @@ core-scaffold /deep/ paper-shadow.card {
         height: 20px;
     }
 }
-/* Ciaos */
-
-.ciaos a {
+section a {
     font-weight: bold;
     text-decoration: none;
     color: #3f51b5;
-    /*    color: #303f9f;*/
+}
+/* Ciaos */
+
+.accent-button {
+    background-color: #ff4081;
+    color: white;
 }
 .date {
     font-size: 13px;
 }
 /* Friends */
 
-.placeholder-friends {
-    height: 100px;
-}
 @media all and (max-width: 960px) {
     .placeholder-friends {
         height: 40px;
@@ -273,4 +296,30 @@ core-list {
 }
 .commonFriendsNum {
     font-size: 13px;
+}
+/* Find */
+
+.find core-toolbar {
+    background-color: #3f51b5;
+    color: white;
+}
+.find .title {
+    font-size: 27px;
+}
+.search {
+    width: 480px;
+    height: 1200px;
+    padding: 16px;
+}
+.search h2 {
+    color: #ff4081;
+}
+.search label {
+    color: #3f51b5;
+}
+.list-item-friend {
+    width: 330px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #e9eaed;
 }

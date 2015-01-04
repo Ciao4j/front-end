@@ -1,0 +1,51 @@
+<core-header-panel class="find" flex>
+    <core-toolbar>
+        <paper-icon-button icon="arrow-back" title="Go back" ng-click="back()"></paper-icon-button>
+        <div class="title unselectable"><a ui-sref="home">Ciao4j</a>
+        </div>
+        <!--
+        <span flex></span> <paper-icon-button class="sign-in-dialog-button" icon="home" title="Sign in" ng-click="toggleSignInDialog()"></paper-icon-button>
+-->
+    </core-toolbar>
+    <div fit layout vertical>
+        <paper-shadow class="search" self-center layout vertical justified>
+            <h2>Find friends</h2>
+            <paper-input class="search-username" label="Username" floatingLabel></paper-input>
+            <paper-input class="search-nickname" label="Nickname" floatingLabel></paper-input>
+            <div layout horizontal center>
+                <label>Sex</label>
+                <span flex></span>
+                <paper-radio-group class="search-sex" selected="any">
+                    <paper-radio-button name="any" label="Any"></paper-radio-button>
+                    <paper-radio-button name="male" label="Male"></paper-radio-button>
+                    <paper-radio-button name="female" label="Femal"></paper-radio-button>
+                </paper-radio-group>
+                <span flex></span>
+            </div>
+            <div layout horizontal center>
+                <label for="birthday">Birthday</label>
+                <span flex></span>
+                <paper-input class="search-birthday" type="date" name="birthday" label="Birthday" flex five></paper-input>
+            </div>
+            <paper-button class="accent-button" ng-click="search()" self-center>Search</paper-button>
+        </paper-shadow>
+        <core-list class="find-list" ng-model="friends" grid width="360">
+            <template>
+                <div class="grid">
+                    <div class="list-item-friend" layout horizontal center>
+                        <div class="avatar-friend">
+                            <img src="/avatar?username='{{model.username}}'" alt="Nex Zhu"></img>
+                        </div>
+                        <div layout vertical>
+                            <div><a ui-sref="main">{{model.nickname}}</a>
+                            </div>
+                            <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
+                        </div>
+                        <span flex></span>
+                        <paper-icon-button icon="social:person-add"></paper-icon-button>
+                    </div>
+                </div>
+            </template>
+        </core-list>
+    </div>
+</core-header-panel>

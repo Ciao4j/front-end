@@ -13,7 +13,7 @@
                 <h1><big>Ciao4j</big> a social network powered by&nbsp;</h1>
                 <img src="images/neo4j-blue-logo.png" alt="Neo4j">
             </div>
-            <paper-button class="sign-up-dialog-button" self-center>Sign up now</paper-button>
+            <paper-button class="sign-up-dialog-button" ng-click="toggleSignUpDialog()" self-center>Sign up now</paper-button>
         </div>
         <paper-shadow animated layout vertical center>
             <h2>Neo4j powered social graph searching!</h2> 
@@ -27,37 +27,36 @@
             <!--                <h2 self-center>Made with <core-icon icon="favorite" style="color: red;"></core-icon> by</h2>-->
             <h2 self-center>Made with <love-heart></love-heart> by</h2>
             <div layout horizontal around-justified>
-                <div class="avatar">
-                    <img src="images/yuxiangluo.jpg" alt="Yuxiang Luo" title="Yuxiang Luo">
-                </div>
-                <div class="avatar">
-                    <img src="images/Cat.jpg" alt="Nex Zhu" title="Nex Zhu">
-                </div>
+                <core-tooltip>
+                    <div class="avatar">
+                        <img src="images/yuxiangluo.jpg" alt="Yuxiang Luo">
+                    </div>
+                    <div class="author" tip>
+                        <span class="name">Yuxiang Luo</span> (server)
+                        <br>Description
+                    </div>
+                </core-tooltip>
+                <core-tooltip>
+                    <div class="avatar">
+                        <img src="images/Cat.jpg" alt="Nex Zhu">
+                    </div>
+                    <div class="author" tip>
+                        <span class="name">Nex Zhu</span> (front-end)
+                        <br>Master student in CS at PKU
+                    </div>
+                </core-tooltip>
             </div>
-            <h2 self-center>Powered by</h2> 
+            <h2 self-center>Powered by</h2>
             <div layout horizontal around-justified>
-                <div class="tech">
-                    <img src="images/tech/Neo4j.png" alt="Neo4j" title="Neo4j">
-                </div>
-                <div class="tech">
-                    <img src="images/tech/AngularJS.png" alt="AngularJS" title="AngularJS">
-                </div>
-                <div class="tech">
-                    <img src="images/tech/AngularUI.png" alt="AngularUI" title="AngularUI">
-                </div>
-                <div class="tech">
-                    <img src="images/tech/jQuery.png" alt="jQuery" title="jQuery">
-                </div>
-                <div class="tech">
-                    <img src="images/tech/Polymer.png" alt="Polymer" title="Polymer">
-                </div>
-                <div class="tech">
-                    <img src="images/tech/Yeoman.png" alt="Yeoman" title="Yeoman">
-                </div>
+                <core-tooltip ng-repeat="tech in techs" label="{{tech}}">
+                    <div class="tech">
+                        <img ng-src="images/tech/{{tech}}.png" alt="Neo4j">
+                    </div>
+                </core-tooltip>
             </div>
         </paper-shadow>
         <div class="bottom-box" layout vertical center>
-            <paper-button class="sign-up-dialog-button" self-center>Sign up now</paper-button>
+            <paper-button class="sign-up-dialog-button" ng-click="toggleSignUpDialog()" self-center>Sign up now</paper-button>
         </div>
     </div>
 </core-scroll-header-panel>

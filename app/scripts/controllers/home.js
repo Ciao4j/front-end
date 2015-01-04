@@ -13,11 +13,11 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         $scope.toolbarHeight = $('<style>.tall {height: ' + $('core-toolbar').width() / 3 + 'px;}</style>');
         $(document.head).append($scope.toolbarHeight);
     }
-
     $(window).resize(function () {
         $scope.toolbarHeight.remove();
         updateToolbarHeight();
     });
+    updateToolbarHeight();
 
     // custom transformation: scale header's title
     var titleStyle = document.querySelector('.title-home').style;
@@ -35,6 +35,8 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         this.setZ(1);
     });
 
+    $scope.techs = ['Neo4j', 'AngularJS', 'AngularUI', 'jQuery', 'Polymer', 'Yeoman'];
+
     $scope.$signInDialogButton = $('.sign-in-dialog-button');
     $scope.$signUpDialogButton = $('.sign-up-dialog-button');
     $scope.signInDialog = document.querySelector('.sign-in-dialog');
@@ -42,9 +44,9 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
     $scope.toggleSignInDialog = function () {
         $scope.signInDialog.toggle();
     };
-    $scope.$signUpDialogButton.click(function () {
+    $scope.toggleSignUpDialog = function () {
         $scope.signUpDialog.toggle();
-    });
+    };
     $('paper-button').mouseover(function () {
         this.raised = true;
     }).mouseout(function () {
@@ -54,6 +56,4 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         $scope.signInDialog.toggle();
         $state.go('main');
     };
-
-    updateToolbarHeight();
 });

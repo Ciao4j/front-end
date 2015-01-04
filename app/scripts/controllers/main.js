@@ -7,28 +7,29 @@
  * # MainCtrl
  * Controller of the ciao4jApp
  */
-angular.module('ciao4jApp').controller('MainCtrl', function ($scope, Restangular) {
+angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $timeout, Restangular) {
+    $scope.username = 'nexzhu'
     $scope.mock = Restangular.one('mock');
     $scope.refreshCiaos = function () {
         $scope.mock.getList('ViewMessageFromFriends', {
-            username: 'username'
+            username: $scope.username
         }).then(function (ciaos) {
             $scope.ciaos = ciaos;
         });
     };
     $scope.refreshMine = function () {
         $scope.mock.getList('ViewMessageFromFriend', {
-            username: 'username'
+            username: $scope.username
         }).then(function (ciaos) {
             $scope.mine = ciaos;
         });
     };
     $scope.refreshFriends = function () {
-        $scope.mock.getList('FindFriends', {
-            username: 'username'
+        $scope.mock.getList('ListFriends', {
+            username: $scope.username
         }).then(function (friends) {
             $scope.friends = friends;
-            $('core-list').css({
+            $('.friends-list').css({
                 'overflow': 'visible'
             });
         });
@@ -57,6 +58,42 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, Restangular
             scaffold.mode = 'standard';
         }
     }
+    $(window).resize(function () {
+        updateScaffoldMode();
+    });
+    updateScaffoldMode();
+
+    $scope.toSay = function () {
+        $scope.page = 1;
+        var timer = $timeout(function () {}, 100);
+        timer.then(function () {
+            $($scope.ciaoTextarea).focus();
+            $timeout.cancel(timer);
+        });
+    };
+    $scope.find = function () {
+        $state.go('find');
+    }
+
+    $scope.ciaoInput = document.querySelector('.ciao-input');
+    $scope.ciaoTextarea = $scope.ciaoInput.querySelector('.ciao-textarea');
+    $scope.say = function () {
+        if ($scope.ciaoInput.isInvalid = !$scope.ciaoTextarea.validity.valid) {
+            return;
+        }
+        $scope.mock.customGET('PublishMessage', {
+            username: $scope.username,
+            message: $scope.ciaoTextarea.value
+        }).then(function (data) {
+            if (data.success) {
+                $scope.ciaoTextarea.value = "";
+                $scope.refreshMine();
+            }
+        });
+    };
+    $($scope.ciaoTextarea).focus(function () {
+        $scope.ciaoInput.isInvalid = false;
+    });
 
     $scope.page = 0;
     $scope.init = [false, false, false];
@@ -67,10 +104,4 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, Restangular
         }
         document.querySelector('core-animated-pages').selected = $scope.page;
     });
-
-    $(window).resize(function () {
-        updateScaffoldMode();
-    });
-
-    updateScaffoldMode();
 });

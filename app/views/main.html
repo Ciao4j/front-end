@@ -24,19 +24,19 @@
     <core-toolbar tool flex>
         <div class="title unselectable" flex><a ui-sref="home">Ciao4j</a>
         </div>
-        <core-icon-button class="toolbar-icon" icon="refresh" ng-click="refresh()"></core-icon-button>
+        <core-icon-button class="toolbar-icon" icon="refresh" title="Refresh" ng-click="refresh()"></core-icon-button>
         <!--        <core-icon-button class="toolbar-icon" icon="add" ng-click="refresh()"></core-icon-button>-->
         <paper-menu-button class="toolbar-menu">
-            <paper-icon-button icon="add" noink></paper-icon-button>
+            <paper-icon-button icon="add" title="Add" noink></paper-icon-button>
             <paper-dropdown class="dropdown" halign="right">
                 <core-menu class="menu-add">
-                    <paper-item noink>
+                    <paper-item ng-click="toSay()" noink>
                         <core-icon icon="create"></core-icon>
                         <span>&nbsp;Say Ciao</span>
                     </paper-item>
-                    <paper-item noink>
-                        <core-icon icon="social:person-add"></core-icon>
-                        <span>&nbsp;Add Friend</span>
+                    <paper-item ng-click="find()" noink>
+                        <core-icon icon="search"></core-icon>
+                        <span>&nbsp;Find Friends</span>
                     </paper-item>
                 </core-menu>
             </paper-dropdown>
@@ -67,6 +67,14 @@
             <div class="ciaos">
                 <div class="placeholder">
                 </div>
+                <paper-shadow class="card" layout vertical>
+                    <paper-input-decorator class="ciao-input" floatinglabel label="Ciao" error="You haven't say nothing!">
+                        <paper-autogrow-textarea row="4">
+                            <textarea class="ciao-textarea" required></textarea>
+                        </paper-autogrow-textarea>
+                    </paper-input-decorator>
+                    <paper-button class="accent-button" ng-click="say()" self-center>Say!</paper-button>
+                </paper-shadow>
                 <paper-shadow class="card" ng-repeat="ciao in mine" layout vertical>
                     <div layout horizontal center>
                         <div class="avatar-mini">
@@ -84,9 +92,9 @@
         </section>
         <section layout vertical stretch>
             <div fit>
-                <div class="placeholder-friends">
+                <div class="placeholder">
                 </div>
-                <core-list ng-model="friends" grid width="240">
+                <core-list class="friends-list" ng-model="friends" grid width="240">
                     <template>
                         <div class="grid">
                             <div class="list-item" layout horizontal center>

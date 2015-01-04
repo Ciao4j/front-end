@@ -16,9 +16,9 @@ angular.module('ciao4jApp', [
     'ngSanitize',
      //    'ngMaterial',
     'ui.router',
-    'angular-loading-bar',
+    'ng-polymer-elements',
     'restangular',
-    'ng-polymer-elements'
+    'angular-loading-bar'
 ])
 //    .config(function ($routeProvider) {
 //        $routeProvider
@@ -46,6 +46,10 @@ angular.module('ciao4jApp', [
         url: '/main',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+    }).state('find', {
+        url: '/find',
+        templateUrl: 'views/find.html',
+        controller: 'FindCtrl'
     });
 
     cfpLoadingBarProvider.includeSpinner = false;
