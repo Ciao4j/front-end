@@ -37,52 +37,17 @@ angular.module('ciao4jApp').controller('FindCtrl', function ($scope, $state, $ti
                 'overflow': 'visible'
             });
             $scope.friends = friends;
-            var timer = $timeout(function () {}, 100);
-            timer.then(function () {
-                //                $('.add').click(function () {
-                $('.find-list').on('click', '.add', function () {
-                    var $this = $(this);
-                    $scope.mock.customGET('AddFriends', {
-                        username1: $scope.username,
-                        username2: $this.attr('username')
-                    }).then(function (data) {
-                        if (data.success) {
-                            $scope.friends[$this.attr('index')].isFriend = true;
-                        }
-                    });
+            $('.find-list').on('click', '.add', function () {
+                var $this = $(this);
+                $scope.mock.customGET('AddFriends', {
+                    username1: $scope.username,
+                    username2: $this.attr('username')
+                }).then(function (data) {
+                    if (data.success) {
+                        $scope.friends[$this.attr('index')].isFriend = true;
+                    }
                 });
-                $timeout.cancel(timer);
             });
-        })
+        });
     };
-
-    //    $scope.ciaoInput = document.querySelector('.ciao-input');
-    //    $scope.ciaoTextarea = $scope.ciaoInput.querySelector('.ciao-textarea');
-    //    $scope.say = function () {
-    //        if ($scope.ciaoInput.isInvalid = !$scope.ciaoTextarea.validity.valid) {
-    //            return;
-    //        }
-    //        $scope.mock.customGET('PublishMessage', {
-    //            username: $scope.username,
-    //            message: $scope.ciaoTextarea.value
-    //        }).then(function (data) {
-    //            if (data.success) {
-    //                $scope.ciaoTextarea.value = "";
-    //                $scope.refreshMine();
-    //            }
-    //        });
-    //    };
-    //    $($scope.ciaoTextarea).focus(function () {
-    //        $scope.ciaoInput.isInvalid = false;
-    //    });
-    //
-    //    $scope.page = 0;
-    //    $scope.init = [false, false, false];
-    //    $scope.$watch('page', function () {
-    //        if (!$scope.init[$scope.page]) {
-    //            $scope.refresh();
-    //            $scope.init[$scope.page] = true;
-    //        }
-    //        document.querySelector('core-animated-pages').selected = $scope.page;
-    //    });
 });
