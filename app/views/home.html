@@ -86,13 +86,17 @@
         <paper-input-decorator id="sign-up-pwd" floatinglabel label="Password" error="Please input your password!">
             <input is="core-input" type="password" ng-model="pwd" required></input>
         </paper-input-decorator>
-        <paper-input-decorator id="sign-up-re-pwd" floatinglabel label="Re-enter your password" error="The passwords do not match.">
+        <paper-input-decorator id="sign-up-re-pwd" floatinglabel label="Confirm your password" error="The passwords do not match.">
             <input is="core-input" type="password" ng-model="rePwd" required></input>
         </paper-input-decorator>
         <paper-input-decorator id="sign-up-nickname" floatinglabel label="Nickname" error="Please input your nickname!">
             <input is="core-input" ng-model="nickname" required>
             </input>
         </paper-input-decorator>
+        <paper-radio-group selected="male">
+            <paper-radio-button name="male" label="Male"></paper-radio-button>
+            <paper-radio-button name="female" label="Femal"></paper-radio-button>
+        </paper-radio-group>
         <div layout horizontal center>
             <label for="birthday">Birthday</label>
             <span flex></span>
