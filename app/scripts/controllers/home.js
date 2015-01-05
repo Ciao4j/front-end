@@ -8,6 +8,8 @@
  * Controller of the ciao4jApp
  */
 angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Restangular) {
+    $scope.mock = Restangular.one('mock');
+
     function updateToolbarHeight() {
         //        $('core-scroll-header-panel').prop('headerHeight', $('core-toolbar').width() / 3);
         $scope.toolbarHeight = $('<style>.tall {height: ' + $('core-toolbar').width() / 3 + 'px;}</style>');
@@ -42,9 +44,16 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
     $scope.signInDialog = document.querySelector('.sign-in-dialog');
     $scope.signUpDialog = document.querySelector('.sign-up-dialog');
     $scope.toggleSignInDialog = function () {
+        $scope.tryUsername = '';
+        $scope.pwd = '';
         $scope.signInDialog.toggle();
     };
     $scope.toggleSignUpDialog = function () {
+        $scope.tryUsername = '';
+        $scope.pwd = '';
+        $scope.rePwd = '';
+        $scope.nickname = '';
+        $scope.birthday = '';
         $scope.signUpDialog.toggle();
     };
     $('paper-button').mouseover(function () {
@@ -52,8 +61,64 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
     }).mouseout(function () {
         this.raised = false;
     });
+    $scope.signInUsername = document.querySelector('#sign-in-username');
+    $scope.signInPwd = document.querySelector('#sign-in-pwd');
+    $scope.signInUsernameInput = $scope.signInUsername.querySelector('input');
+    $scope.signInPwdInput = $scope.signInPwd.querySelector('input');
     $scope.signIn = function () {
-        $scope.signInDialog.toggle();
-        $state.go('main');
+        if (($scope.signInUsername.isInvalid = !$scope.signInUsernameInput.validity.valid) || ($scope.signInPwd.isInvalid = !$scope.signInPwdInput.validity.valid)) {
+            return;
+        }
+        $scope.mock.customGET('CheckAccount', {
+            username: $scope.tryUsername,
+            pwd: $scope.pwd
+        }).then(function (data) {
+            if (data.success) {
+                $scope.username = $scope.tryUsername;
+                $scope.signInDialog.toggle();
+                $state.go('main');
+            } else {
+                alert('error');
+            }
+        });
     };
+    $($scope.signInUsername).focus(function () {
+        $scope.signInUsername.isInvalid = false;
+    });
+    $($scope.signInPwd).focus(function () {
+        $scope.signInPwd.isInvalid = false;
+    });
+    $scope.signUpUsername = document.querySelector('#sign-up-username');
+    $scope.signUpPwd = document.querySelector('#sign-up-pwd');
+    $scope.signUpRePwd = document.querySelector('#sign-up-re-pwd');
+    $scope.signUpNickname = document.querySelector('#sign-up-nickname');
+    $scope.signUpUsernameInput = $scope.signUpUsername.querySelector('input');
+    $scope.signUpPwdInput = $scope.signUpPwd.querySelector('input');
+    $scope.signUpRePwdInput = $scope.signUpRePwd.querySelector('input');
+    $scope.signUpNicknameInput = $scope.signUpNickname.querySelector('input');
+    $scope.signUp = function () {
+        if (($scope.signUpUsername.isInvalid = !$scope.signUpUsernameInput.validity.valid) || ($scope.signUpPwd.isInvalid = !$scope.signUpPwdInput.validity.valid) || ($scope.signUpRePwd.isInvalid = ($scope.rePwd != $scope.pwd)) || ($scope.signUpNickname.isInvalid = !$scope.signUpNicknameInput.validity.valid)) {
+            return;
+        }
+        $scope.mock.customGET('registration', {
+            username: $scope.tryUsername,
+            pwd: $scope.pwd,
+            nickname: $scope.nickname,
+            birthday: $scope.birthday
+        }).then(function (data) {
+            if (data.success) {
+                $scope.username = $scope.tryUsername;
+                $scope.signUpDialog.toggle();
+                $state.go('main');
+            } else {
+                alert('error');
+            }
+        });
+    };
+    $($scope.signInUsername).focus(function () {
+        $scope.signInUsername.isInvalid = false;
+    });
+    $($scope.signInPwd).focus(function () {
+        $scope.signInPwd.isInvalid = false;
+    });
 });

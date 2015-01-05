@@ -65,8 +65,13 @@
 
 <paper-action-dialog class="sign-in-dialog" heading="Sign in" autoclosedisabled backdrop closeSelector="[dismissive]" transition="core-transition-top">
     <form layout vertical>
-        <paper-input label="Username" floatingLabel></paper-input>
-        <paper-input type="password" label="Password" floatingLabel></paper-input>
+        <paper-input-decorator id="sign-in-username" floatinglabel label="Username" error="Please input your username!">
+            <input is="core-input" ng-model="tryUsername" required>
+            </input>
+        </paper-input-decorator>
+        <paper-input-decorator id="sign-in-pwd" floatinglabel label="Password" error="Please input your password!">
+            <input is="core-input" type="password" ng-model="pwd" required></input>
+        </paper-input-decorator>
     </form>
     <paper-button affirmative class="sign-in-button" ng-click="signIn()">Sign in</paper-button>
     <paper-button dismissive>Cancel</paper-button>
@@ -74,10 +79,26 @@
 
 <paper-action-dialog class="sign-up-dialog" heading="Sign up" autoclosedisabled backdrop closeSelector="[dismissive]" transition="core-transition-top">
     <form layout vertical>
-        <paper-input label="Username" floatingLabel></paper-input>
-        <paper-input type="password" label="Password" floatingLabel></paper-input>
-        <paper-input type="password" label="Confirm your password" floatingLabel></paper-input>
+        <paper-input-decorator id="sign-up-username" floatinglabel label="Username" error="Please input your username!">
+            <input is="core-input" ng-model="tryUsername" required>
+            </input>
+        </paper-input-decorator>
+        <paper-input-decorator id="sign-up-pwd" floatinglabel label="Password" error="Please input your password!">
+            <input is="core-input" type="password" ng-model="pwd" required></input>
+        </paper-input-decorator>
+        <paper-input-decorator id="sign-up-re-pwd" floatinglabel label="Re-enter your password" error="The passwords do not match.">
+            <input is="core-input" type="password" ng-model="rePwd" required></input>
+        </paper-input-decorator>
+        <paper-input-decorator id="sign-up-nickname" floatinglabel label="Nickname" error="Please input your nickname!">
+            <input is="core-input" ng-model="nickname" required>
+            </input>
+        </paper-input-decorator>
+        <div layout horizontal center>
+            <label for="birthday">Birthday</label>
+            <span flex></span>
+            <paper-input class="search-birthday" type="date" name="birthday" label="Birthday" flex five ng-model="birthday"></paper-input>
+        </div>
     </form>
-    <paper-button affirmative>Sign up</paper-button>
+    <paper-button affirmative class="sign-up-button" ng-click="signUp()">Sign up</paper-button>
     <paper-button dismissive>Cancel</paper-button>
 </paper-action-dialog>

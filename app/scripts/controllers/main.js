@@ -52,7 +52,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
     function updateScaffoldMode() {
         var width = document.documentElement.clientWidth;
         var scaffold = document.querySelector('core-scaffold');
-        if (scaffold != null) {
+        if (scaffold !== null) {
             if (width > 960) {
                 scaffold.mode = 'cover';
             } else {
@@ -80,7 +80,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
     };
     $scope.find = function () {
         $state.go('find');
-    }
+    };
 
     $scope.ciaoInput = document.querySelector('.ciao-input');
     $scope.ciaoTextarea = $scope.ciaoInput.querySelector('.ciao-textarea');
@@ -93,7 +93,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
             message: $scope.ciaoTextarea.value
         }).then(function (data) {
             if (data.success) {
-                $scope.ciaoTextarea.value = "";
+                $scope.ciaoTextarea.value = '';
                 $scope.refreshMine();
             }
         });

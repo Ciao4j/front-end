@@ -154,6 +154,9 @@ paper-shadow {
 body /deep/ paper-action-dialog::shadow h1 {
     color: #ff4081;
 }
+body /deep/ paper-action-dialog label {
+    color: #3f51b5;
+}
 body /deep/ paper-action-dialog paper-button {
     color: white;
 }
@@ -162,6 +165,9 @@ body /deep/ paper-action-dialog paper-button[affirmative] {
 }
 body /deep/ paper-action-dialog paper-button[dismissive] {
     background-color: #3f51b5;
+}
+body /deep/ .sign-up-dialog {
+    width: 300px;
 }
 /* Main */
 
