@@ -51,6 +51,10 @@ angular.module('ciao4jApp', [
         url: '/find',
         templateUrl: 'views/find.html',
         controller: 'FindCtrl'
+    }).state('info', {
+        url: '/info',
+        templateUrl: 'views/info.html',
+        controller: 'InfoCtrl'
     });
 
     cfpLoadingBarProvider.includeSpinner = false;

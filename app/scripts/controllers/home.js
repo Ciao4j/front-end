@@ -7,8 +7,9 @@
  * # HomeCtrl
  * Controller of the ciao4jApp
  */
-angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Restangular) {
+angular.module('ciao4jApp').controller('HomeCtrl', function ($rootScope, $scope, $state, Restangular) {
     $scope.mock = Restangular.one('mock');
+    $scope.ciao4j = Restangular.one('ciao4j');
 
     function updateToolbarHeight() {
         //        $('core-scroll-header-panel').prop('headerHeight', $('core-toolbar').width() / 3);
@@ -53,6 +54,7 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         $scope.pwd = '';
         $scope.rePwd = '';
         $scope.nickname = '';
+        $('.sign-up-dialog paper-radio-group').prop('selected', 'male');
         $scope.birthday = '';
         $scope.signUpDialog.toggle();
     };
@@ -69,12 +71,13 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
         if (($scope.signInUsername.isInvalid = !$scope.signInUsernameInput.validity.valid) || ($scope.signInPwd.isInvalid = !$scope.signInPwdInput.validity.valid)) {
             return;
         }
-        $scope.mock.customGET('CheckAccount', {
+        //        $scope.mock.customGET('CheckAccount', {
+        $scope.ciao4j.customGET('login', {
             username: $scope.tryUsername,
             pwd: $scope.pwd
         }).then(function (data) {
             if (data.success) {
-                $scope.username = $scope.tryUsername;
+                $rootScope.username = $scope.tryUsername;
                 $scope.signInDialog.toggle();
                 $state.go('main');
             } else {
@@ -96,18 +99,21 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($scope, $state, Res
     $scope.signUpPwdInput = $scope.signUpPwd.querySelector('input');
     $scope.signUpRePwdInput = $scope.signUpRePwd.querySelector('input');
     $scope.signUpNicknameInput = $scope.signUpNickname.querySelector('input');
+    $scope.$gender = $('.sign-up-dialog paper-radio-group');
     $scope.signUp = function () {
         if (($scope.signUpUsername.isInvalid = !$scope.signUpUsernameInput.validity.valid) || ($scope.signUpPwd.isInvalid = !$scope.signUpPwdInput.validity.valid) || ($scope.signUpRePwd.isInvalid = ($scope.rePwd != $scope.pwd)) || ($scope.signUpNickname.isInvalid = !$scope.signUpNicknameInput.validity.valid)) {
             return;
         }
-        $scope.mock.customGET('registration', {
+        //        $scope.mock.customGET('registration', {
+        $scope.ciao4j.customGET('register', {
             username: $scope.tryUsername,
             pwd: $scope.pwd,
             nickname: $scope.nickname,
+            sex: $scope.$gender.prop('selected'),
             birthday: $scope.birthday
         }).then(function (data) {
             if (data.success) {
-                $scope.username = $scope.tryUsername;
+                $rootScope.username = $scope.tryUsername;
                 $scope.signUpDialog.toggle();
                 $state.go('main');
             } else {

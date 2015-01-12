@@ -23,14 +23,14 @@ angular.module('ciao4jApp').controller('FindCtrl', function ($scope, $state, $ti
     var searchForm = document.querySelector('.search');
     $scope.searchUsername = searchForm.querySelector('.search-username');
     $scope.nickname = searchForm.querySelector('.search-nickname');
-    $scope.sex = searchForm.querySelector('.search-sex');
+    $scope.gender = searchForm.querySelector('.search-gender');
     $scope.birthday = searchForm.querySelector('.search-birthday');
     $scope.search = function () {
         $scope.mock.getList('FindFriends', {
             username: $scope.username,
             searchUsername: $scope.searchUsername.value,
             nickname: $scope.nickname.value,
-            sex: $scope.sex.selected,
+            gender: $scope.gender.selected,
             birthday: $scope.birthday.value
         }).then(function (friends) {
             $('.find-list').css({

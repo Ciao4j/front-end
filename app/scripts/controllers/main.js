@@ -7,26 +7,31 @@
  * # MainCtrl
  * Controller of the ciao4jApp
  */
-angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $timeout, Restangular) {
+angular.module('ciao4jApp').controller('MainCtrl', function ($rootScope, $scope, $state, $timeout, Restangular) {
     $scope.username = 'nexzhu';
     $scope.mock = Restangular.one('mock');
+    $scope.ciao4j = Restangular.one('ciao4j');
+
     $scope.refreshCiaos = function () {
-        $scope.mock.getList('ViewMessageFromFriends', {
+        //        $scope.mock.getList('ViewMessageFromFriends', {
+        $scope.ciao4j.getList('ciaos', {
             username: $scope.username
         }).then(function (ciaos) {
             $scope.ciaos = ciaos;
         });
     };
     $scope.refreshMine = function () {
-        $scope.mock.getList('ViewMessageFromFriend', {
-            username: $scope.username
+        //        $scope.mock.getList('ViewMessageFromFriend', {
+        $scope.ciao4j.getList('ciaosOf', {
+            username: $rootScope.username
         }).then(function (ciaos) {
             $scope.mine = ciaos;
         });
     };
     $scope.refreshFriends = function () {
-        $scope.mock.getList('ListFriends', {
-            username: $scope.username
+        //        $scope.mock.getList('ListFriends', {
+        $scope.ciao4j.getList('ListFriends', {
+            username: $rootScope.username
         }).then(function (friends) {
             $('.friends-list').css({
                 'overflow': 'visible'
@@ -88,8 +93,9 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($scope, $state, $ti
         if ($scope.ciaoInput.isInvalid = !$scope.ciaoTextarea.validity.valid) {
             return;
         }
-        $scope.mock.customGET('PublishMessage', {
-            username: $scope.username,
+        //        $scope.mock.customGET('PublishMessage', {
+        $scope.ciao4j.customGET('publish', {
+            username: $rootScope.username,
             message: $scope.ciaoTextarea.value
         }).then(function (data) {
             if (data.success) {
