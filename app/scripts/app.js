@@ -52,7 +52,7 @@ angular.module('ciao4jApp', [
         templateUrl: 'views/find.html',
         controller: 'FindCtrl'
     }).state('info', {
-        url: '/info',
+        url: '/info/:username',
         templateUrl: 'views/info.html',
         controller: 'InfoCtrl'
     });

@@ -5,50 +5,33 @@
         </core-tooltip>
         <div class="title unselectable"><a ui-sref="home">Ciao4j</a>
         </div>
-        <!--
-        <span flex></span> <paper-icon-button class="sign-in-dialog-button" icon="home" title="Sign in" ng-click="toggleSignInDialog()"></paper-icon-button>
--->
     </core-toolbar>
-    <div fit layout vertical>
-        <paper-shadow class="search" self-center layout vertical justified>
-            <h2>Find friends</h2>
-            <paper-input class="search-username" label="Username" floatingLabel></paper-input>
-            <paper-input class="search-nickname" label="Nickname" floatingLabel></paper-input>
-            <div layout horizontal center>
-                <label>Gender</label>
-                <span flex></span>
-                <paper-radio-group class="search-gender" selected="any">
-                    <paper-radio-button name="any" label="Any"></paper-radio-button>
-                    <paper-radio-button name="male" label="Male"></paper-radio-button>
-                    <paper-radio-button name="female" label="Femal"></paper-radio-button>
-                </paper-radio-group>
-                <span flex></span>
-            </div>
-            <div layout horizontal center>
-                <label for="birthday">Birthday</label>
-                <span flex></span>
-                <paper-input class="search-birthday" type="date" name="birthday" label="Birthday" flex five></paper-input>
-            </div>
-            <paper-button class="accent-button" ng-click="search()" self-center>Search</paper-button>
-        </paper-shadow>
-        <core-list class="find-list" ng-model="friends" grid width="360">
-            <template>
-                <div class="grid">
-                    <div class="list-item-friend" layout horizontal center>
-                        <div class="avatar-friend">
-                            <img src="/avatar?username='{{model.username}}'" alt="Nex Zhu"></img>
-                        </div>
-                        <div layout vertical>
-                            <div><a ui-sref="main">{{model.nickname}}</a>
-                            </div>
-                            <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
-                        </div>
-                        <span flex></span>
-                        <core-icon class="check" icon="check" hidden?="{{!model.isFriend}}"></core-icon>
-                        <paper-icon-button class="add" icon="social:person-add" hidden?="{{model.isFriend}}" username="{{model.username}}" index="{{index}}"></paper-icon-button>
-                    </div>
+    <div layout vertical>
+        <paper-shadow class="info" self-center layout vertical>
+            <div class="basic-info" layout horizontal>
+                <div class="avatar-info">
+                    <img ng-src="/ciao4j/avatar/{{username}}" alt="{{nickname}}"></img>
                 </div>
-            </template>
-        </core-list>
+                <!--            <h2>{{nickname}}</h2>-->
+                <div class="low" layout horizontal>
+                    <h2 class="nickname">{{friend.nickname}}</h2>
+                    <core-icon class="info-button check" icon="check" ng-show="friend.isFriend"></core-icon>
+                    <paper-icon-button class="info-button add" icon="social:person-add" ng-hide="friend.isFriend" username="{{model.username}}" index="{{index}}"></paper-icon-button>
+                </div>
+            </div>
+            <div layout vertical>
+                <div class="info-field" layout horizontal>
+                    <label flex one>Gender</label>
+                    <span flex four></span>
+                    <span flex one ng-bind="friend.gender | capitalize"></span>
+                </div>
+                <div class="info-field" layout horizontal>
+                    <label flex one>Birthday</label>
+                    <span flex three></span>
+                    <span flex one ng-bind="friend.birthday"></span>
+                </div>
+            </div>
+            <!--            <paper-button class="accent-button" ng-click="search()" self-center>Search</paper-button>-->
+        </paper-shadow>
     </div>
 </core-header-panel>

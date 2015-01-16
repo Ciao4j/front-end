@@ -15,7 +15,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($rootScope, $scope,
     $scope.refreshCiaos = function () {
         //        $scope.mock.getList('ViewMessageFromFriends', {
         $scope.ciao4j.getList('ciaos', {
-            username: $scope.username
+            username: $rootScope.username
         }).then(function (ciaos) {
             $scope.ciaos = ciaos;
         });
@@ -30,7 +30,7 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($rootScope, $scope,
     };
     $scope.refreshFriends = function () {
         //        $scope.mock.getList('ListFriends', {
-        $scope.ciao4j.getList('ListFriends', {
+        $scope.ciao4j.getList('listFriends', {
             username: $rootScope.username
         }).then(function (friends) {
             $('.friends-list').css({

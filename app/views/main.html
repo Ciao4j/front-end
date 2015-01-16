@@ -55,10 +55,11 @@
                 <paper-shadow class="card" ng-repeat="ciao in ciaos" layout vertical>
                     <div layout horizontal center>
                         <div class="avatar-mini">
-                            <img ng-src="/avatar?username='{{ciao.username}}'" alt="Nex Zhu"></img>
+                            <!--                            <img ng-src="/ciao4j/avatar/{{ciao.username}}" alt="{{ciao.nickname}}"></img>-->
+                            <img src="/ciao4j/avatar/{{ciao.username}}" alt="{{ciao.nickname}}"></img>
                         </div>
                         <div layout vertical>
-                            <div><a ui-sref="main">{{ciao.nickname}}</a>
+                            <div><a href="#/info/{{ciao.username}}">{{ciao.nickname}}</a>
                             </div>
                             <div class="date secondary-text">{{ciao.date}}</div>
                         </div>
@@ -82,10 +83,11 @@
                 <paper-shadow class="card" ng-repeat="ciao in mine" layout vertical>
                     <div layout horizontal center>
                         <div class="avatar-mini">
-                            <img ng-src="/avatar?username='{{ciao.username}}'" alt="Nex Zhu"></img>
+                            <!--                            <img ng-src="/ciao4j/avatar/{{ciao.username}}" alt="{{ciao.nickname}}"></img>-->
+                            <img src="/ciao4j/avatar/{{ciao.username}}" alt="{{ciao.nickname}}"></img>
                         </div>
                         <div layout vertical>
-                            <div><a ui-sref="main">{{ciao.nickname}}</a>
+                            <div><a href="#/info/{{ciao.username}}">{{ciao.nickname}}</a>
                             </div>
                             <div class="date secondary-text">{{ciao.date}}</div>
                         </div>
@@ -103,10 +105,11 @@
                         <div class="grid">
                             <div class="list-item" layout horizontal center>
                                 <div class="avatar-friend">
-                                    <img src="/avatar?username='{{model.username}}'" alt="Nex Zhu"></img>
+                                    <!--                  <img ng-src="/ciao4j/avatar/{{model.username}}" alt="{{model.nickname}}"></img>-->
+                                    <img src="/ciao4j/avatar/{{model.username}}" alt="{{model.nickname}}"></img>
                                 </div>
                                 <div layout vertical>
-                                    <div><a ui-sref="main">{{model.nickname}}</a>
+                                    <div><a href="#/info/{{model.username}}">{{model.nickname}}</a>
                                     </div>
                                     <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
                                 </div>

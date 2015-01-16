@@ -134,7 +134,8 @@ paper-shadow {
     /*    border: 1px solid;*/
 }
 .avatar img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 .author {
@@ -180,7 +181,8 @@ body /deep/ .sign-up-dialog {
     border-radius: 50%;
 }
 .avatar-mini img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 core-scaffold /deep/ core-toolbar {
@@ -291,7 +293,8 @@ core-list {
     border-radius: 50%;
 }
 .avatar-friend img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 .commonFriendsNum {
@@ -334,4 +337,41 @@ core-list {
 }
 .add:hover {
     color: #ff4081;
+}
+/* Info */
+
+.info {
+    width: 480px;
+    padding: 16px;
+}
+.info h2 {
+    color: #ff4081;
+}
+.info label {
+    color: #3f51b5;
+}
+.basic-info {
+    padding-bottom: 16px;
+    border-bottom: 1px solid gray;
+}
+.avatar-info {
+    display: inline-block;
+    width: 156px;
+    /*    height: 156px;*/
+    line-height: 0;
+}
+.avatar-info img {
+    max-width: 100%;
+}
+.low {
+    margin: 104px 0 0 16px;
+}
+.nickname {
+    margin: 0;
+}
+.info-button {
+    margin-left: 156px;
+}
+.info-field {
+    margin-top: 16px;
 }

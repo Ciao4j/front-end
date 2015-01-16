@@ -38,7 +38,7 @@ angular.module('ciao4jApp').controller('HomeCtrl', function ($rootScope, $scope,
         this.setZ(1);
     });
 
-    $scope.techs = ['Neo4j', 'AngularJS', 'AngularUI', 'jQuery', 'Polymer', 'Yeoman'];
+    $scope.techs = ['Neo4j', 'AngularJS', 'AngularUI', 'jQuery', 'Polymer', 'Sass', 'Yeoman'];
 
     $scope.$signInDialogButton = $('.sign-in-dialog-button');
     $scope.$signUpDialogButton = $('.sign-up-dialog-button');
