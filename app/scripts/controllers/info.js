@@ -31,10 +31,10 @@ angular.module('ciao4jApp').controller('InfoCtrl', function ($rootScope, $scope,
         //                $scope.mock.customGET('AddFriends', {
         $scope.ciao4j.customGET('addFriends', {
             username1: $rootScope.username,
-            username2: $this.attr('username')
+            username2: $scope.username
         }).then(function (data) {
             if (data.success) {
-                $scope.friends[$this.attr('index')].isFriend = true;
+                $scope.friend.isFriend = true;
             }
         });
     });
