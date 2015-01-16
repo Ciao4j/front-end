@@ -15,8 +15,12 @@
                 <span>&nbsp;Mine</span>
             </paper-item>
             <paper-item noink>
-                <core-icon icon="social:people"></core-icon>
+                <core-icon icon="social:person"></core-icon>
                 <span>&nbsp;Friends</span>
+            </paper-item>
+            <paper-item noink>
+                <core-icon icon="social:people"></core-icon>
+                <span>&nbsp;Friends' Friends</span>
             </paper-item>
         </core-menu>
     </core-header-panel>
@@ -101,6 +105,29 @@
                 <div class="placeholder">
                 </div>
                 <core-list class="friends-list" ng-model="friends" grid width="240">
+                    <template>
+                        <div class="grid">
+                            <div class="list-item" layout horizontal center>
+                                <div class="avatar-friend">
+                                    <!--                  <img ng-src="/ciao4j/avatar/{{model.username}}" alt="{{model.nickname}}"></img>-->
+                                    <img src="/ciao4j/avatar/{{model.username}}" alt="{{model.nickname}}"></img>
+                                </div>
+                                <div layout vertical>
+                                    <div><a href="#/info/{{model.username}}">{{model.nickname}}</a>
+                                    </div>
+                                    <div class="commonFriendsNum secondary-text">{{model.commonFriendsNum}} mutual friends</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </core-list>
+            </div>
+        </section>
+        <section layout vertical stretch>
+            <div fit>
+                <div class="placeholder">
+                </div>
+                <core-list class="friends-friends-list" ng-model="friendsfriends" grid width="240">
                     <template>
                         <div class="grid">
                             <div class="list-item" layout horizontal center>

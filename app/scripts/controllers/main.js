@@ -39,6 +39,18 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($rootScope, $scope,
             $scope.friends = friends;
         });
     };
+    $scope.refreshFriendsFriends = function () {
+        //        $scope.mock.getList('ListFriends', {
+        $scope.ciao4j.getList('listFriendsFriends', {
+            username: $rootScope.username,
+            depth: 2
+        }).then(function (friends) {
+            $('.friends-friends-list').css({
+                'overflow': 'visible'
+            });
+            $scope.friendsfriends = friends;
+        });
+    };
     $scope.refresh = function () {
         switch ($scope.page) {
         case 0:
@@ -49,6 +61,9 @@ angular.module('ciao4jApp').controller('MainCtrl', function ($rootScope, $scope,
             break;
         case 2:
             $scope.refreshFriends();
+            break;
+        case 3:
+            $scope.refreshFriendsFriends();
             break;
         }
         $('section.core-selected').scrollTop(0);
